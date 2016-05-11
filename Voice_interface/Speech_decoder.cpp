@@ -6,7 +6,8 @@
 
 Voice_type channel_decoding(int input_data[], int block_code_id, int conv_code_id)
 {
-
+	Voice_type VT = { 1, 3, 5 };
+	return VT;
 }
 
 Voice_type get_filter_parameters(int input_data[], int block_code_id, int conv_code_id)
@@ -28,11 +29,11 @@ Voice_type get_ALL(int input_data[], int block_code_id, int conv_code_id)
 	return VT;
 }
 
-Voice_type made_voise(int input_data[], int block_code_id, int conv_code_id)
+Voice_type made_voise(char coder_type, int input_data[], int block_code_id, int conv_code_id)
 {
 	Voice_type VT;
 
-	switch (VOICE_CODER_TYPE){
+	switch (coder_type){
 	case 'V':
 		VT.phoneme = get_phoneme_number(input_data, block_code_id, conv_code_id);
 		break;

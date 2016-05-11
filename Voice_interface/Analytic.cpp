@@ -3,7 +3,11 @@
 */
 
 #include "Analytic.h"
-#include "stdio.h"
+
+Voice_type SOUND_DELAY;
+Voice_type NEW_VOICE;
+float BEST_ERROR;
+int BEST_PHONEM_ID;
 
 bool Search_pause(Voice_type VT)
 {
@@ -12,11 +16,11 @@ bool Search_pause(Voice_type VT)
 	return false;
 }
 
-Voice_type LPC(Voice_type VT)
+Voice_type LPC(char coder_type, Voice_type VT)
 {
 	BEST_ERROR = 1.0;
 
-	get_signal_parameter(VOICE_CODER_TYPE, VT, Get_previous_sound());
+	get_signal_parameter(coder_type, VT, Get_previous_sound());
 
 	Set_current_sound(NEW_VOICE); //В задержку идёт новый звук.
 
@@ -33,12 +37,12 @@ Voice_type Get_previous_sound()
 	return SOUND_DELAY;
 }
 
-int Phoneme_number_generator(Voice_type VT)
+int Phoneme_number_generator(char coder_type, Voice_type VT)
 {
 	//По поступившим параметрам голоса определяем номер фонемы.
 	BEST_ERROR = 1.0;
 
-	get_signal_parameter(VOICE_CODER_TYPE, VT, VT);
+	get_signal_parameter(coder_type, VT, VT);
 
 	return BEST_PHONEM_ID;
 }

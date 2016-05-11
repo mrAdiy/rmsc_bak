@@ -6,6 +6,11 @@
 
 #define SIZE_OF_VOICE_TYPE 3
 
+int PHONEME_NUMBER;
+Voice_type CURRENT_VT;
+int BLOCK_CODE[100];
+int CONV_CODE[500];
+
 void Set_filter_parametres(Voice_type VT)
 {
 	CURRENT_VT = VT;
