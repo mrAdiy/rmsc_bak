@@ -14,12 +14,20 @@ Voice_type get_filter_parameters(int input_data[], int block_code_id, int conv_c
 {
 	Voice_type VT = { 1, 1, 1 };
 
+	int decode_result[100] = { 0, };
+
+	De_bm_2(input_data, decode_result);
+
 	return VT;
 }
 
 int get_phoneme_number(int input_data[], int block_code_id, int conv_code_id)
 {
-	return 1;
+	int decode_result[] = { 0, };
+
+	De_bm_2(input_data, decode_result);
+
+	return decode_result[0];
 }
 
 Voice_type get_ALL(int input_data[], int block_code_id, int conv_code_id)
@@ -29,9 +37,10 @@ Voice_type get_ALL(int input_data[], int block_code_id, int conv_code_id)
 	return VT;
 }
 
-Voice_type made_voise(char coder_type, int input_data[], int block_code_id, int conv_code_id)
+Voice_type made_voice(char coder_type, int input_data[], int block_code_id, int conv_code_id)
 {
 	Voice_type VT;
+	DE_interleaving(input_data);
 
 	switch (coder_type){
 	case 'V':

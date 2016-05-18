@@ -1,8 +1,10 @@
 /*
 Данный файл содержит интерфейсы синтетической части речевого кодера.
 */
+#include "stdio.h"
 
 #include "Synthetic.h"
+#include "Interleaving.h"
 
 #define SIZE_OF_VOICE_TYPE 3
 
@@ -67,6 +69,9 @@ void Code_generator(char coder_type, int block_code_id, int conv_code_id)
 	default:
 		break;
 	}
+
+	printf("Resulting block code:\n");
+	for (int i = 0; i < 1; i++) printf("%d ", BLOCK_CODE[i]);
 
 	//Определяем свёрточный код
 	switch (conv_code_id){

@@ -19,4 +19,7 @@ void Set_phoneme_num(int phoneme_num);
 //»спользуем библиотеку дл€ канального кодировани€:
 void Code_generator(char coder_type, int block_code_id, int conv_code_id);
 
+extern int CONV_CODE[500];
+extern int BLOCK_CODE[100];
 #endif
+
